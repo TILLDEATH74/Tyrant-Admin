@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Exam Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Prevent caching to ensure fresh security scripts -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+</head>
+<body oncontextmenu="return false;"> <!-- Disable right click immediately -->
+
+    <!-- Initial Landing Screen -->
+    <div id="start-screen" class="screen">
+        <div class="card">
+            <h1>Secure Exam System</h1>
+            <p>Please read the instructions carefully before starting.</p>
+            <ul class="instructions">
+                <li>You must use <strong>Google Chrome</strong>.</li>
+                <li>The exam will run in <strong>Full Screen</strong> mode.</li>
+                <li>Do not attempt to switch tabs or minimize the browser.</li>
+                <li>Right-click and keyboard navigation are disabled.</li>
+            </ul>
+            <button id="start-btn" class="primary-btn">Start Exam</button>
+        </div>
+    </div>
+
+    <!-- Exam Interface (Hidden initially) -->
+    <div id="exam-screen" class="screen hidden">
+        <header class="exam-header">
+            <div class="timer">Time Left: <span id="time-display">60:00</span></div>
+            <div class="user-info">Candidate: John Doe</div>
+        </header>
+        <main class="question-container">
+            <h2 id="question-text">Question 1: ...</h2>
+            <div id="options-container" class="options">
+                <!-- Options injected by JS -->
+            </div>
+            <div class="controls">
+                <button id="next-btn" class="secondary-btn">Next Question</button>
+                <button id="submit-btn" class="primary-btn hidden">Submit Exam</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Security Warning Overlay -->
+    <div id="security-overlay" class="overlay hidden">
+        <div class="warning-box">
+            <h2 class="danger-text">SECURITY ALERT</h2>
+            <p id="warning-message">You have attempted to switch windows.</p>
+            <p>This action has been recorded. Returning to the exam in <span id="countdown">5</span> seconds.</p>
+            <button id="resume-btn" class="primary-btn">Resume Exam</button>
+        </div>
+    </div>
+
+    <!-- Browser Error Overlay -->
+    <div id="browser-error" class="overlay hidden">
+        <div class="error-box">
+            <h2>Browser Not Supported</h2>
+            <p>This exam is only accessible on <strong>Google Chrome</strong>.</p>
+            <p>Please switch browsers to continue.</p>
+        </div>
+    </div>
+
+    <script src="security.js"></script>
+    <script src="exam.js"></script>
+</body>
+</html>
